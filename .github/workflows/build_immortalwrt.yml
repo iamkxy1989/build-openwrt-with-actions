@@ -130,12 +130,12 @@ jobs:
           include-hidden-files: true
 
       - name: 多线程编译 openWRT (Build openWRT multithreading)
-        if: ${{inputs.multithreading == true}}
+        if: ${{inputs.multithreading == false}}
         working-directory: openWRT
         run: make -j$(nproc) V=s
 
       - name: 单线程编译 openWRT (Build openWRT single thread)
-        if: ${{inputs.multithreading == false}}
+        if: ${{inputs.multithreading == true}}
         working-directory: openWRT
         run: make -j1 V=s
 
